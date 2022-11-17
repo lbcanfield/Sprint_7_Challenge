@@ -1,3 +1,5 @@
 export default function Home(props) {
-    <h1>HOME COMPONENT</h1>
+    return (
+        <h1>HOME COMPONENT</h1>
+    )
 }

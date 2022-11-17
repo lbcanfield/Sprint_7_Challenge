@@ -5,14 +5,14 @@
 }
 
 .nav-container {
-  height: 50px;
-  pointer-events: none;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #282c34;
+  background-color: #193162;
   color: white;
 }
+
 
 .company-name {
   margin-left: 20px;
@@ -20,6 +20,35 @@
 
 .navBtns {
   margin-right: 20px;
+
+}
+
+.navBtns button {
+  width: 60px;
+  height: 30px;
+  background-color: #c2c5ce
+}
+
+.navBtns a {
+  color: black;
+  font-weight: bold;
+  padding: 5px;
+  width: 400px;
+}
+
+
+.navBtn {
+  border-radius: 5px;
+  border: 1px solid white;
+  color: white;
+}
+
+.navBtns a {
+  text-decoration: none;
+}
+
+*/ .App-link {
+  color: #61dafb;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -39,9 +68,7 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
+
 
 @keyframes App-logo-spin {
   from {
