@@ -1,10 +1,25 @@
 .App {
   text-align: center;
+  box-sizing: border-box;
+  border: 1px solid black;
 }
 
-.App-logo {
-  height: 40vmin;
+.nav-container {
+  height: 50px;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #282c34;
+  color: white;
+}
+
+.company-name {
+  margin-left: 20px;
+}
+
+.navBtns {
+  margin-right: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -32,6 +47,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

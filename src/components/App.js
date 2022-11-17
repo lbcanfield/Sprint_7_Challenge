@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/App.css';
 
 
 
@@ -7,8 +8,16 @@ const App = (props) => {
   document.querySelector('title').textContent = `${data.companyName} Eats`;
   return (
     <>
-      <h1>{data.companyName} Eats</h1>
-      <p>You can remove this code and create your own header</p>
+      <div className='App'>
+        <nav className='nav-container'>
+          <h1 className='company-name'>{data.companyName} Eats</h1>
+          <div className='navBtns'>
+            <button>Home</button>
+            <button>Help</button>
+          </div>
+        </nav>
+      </div>
+
     </>
   );
 };
