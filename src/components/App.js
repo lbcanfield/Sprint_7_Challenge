@@ -44,6 +44,7 @@ export default function App(props) {
         <h1 className='company-name'>{company} Eats</h1>
         <div className='navBtns'>
           <button><Link to='/'>Home</Link></button>
+          <button><Link to='/pizza'>Pizza</Link></button>
           <button><Link to='/help'>Help</Link></button>
         </div>
       </nav>
