@@ -3,11 +3,12 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from 'react-router-dom';
 import './styles/index.css';
 import App from "./components/App";
-import siteVariables from './data/data';
+import data from './data/data.js';
+
 
 ReactDOM.render(
     <Router>
-        <App data={siteVariables} />
+        <App data={data} />
     </Router>
     ,
     document.getElementById("root"));

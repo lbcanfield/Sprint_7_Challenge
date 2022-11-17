@@ -9,11 +9,17 @@ import OrderForm from './OrderForm';
 
 export default function App(props) {
   const { data } = props;
-  document.querySelector('title').textContent = `${data.companyName} Eats`;
+
+  const sv = data.filter((element) => {
+    return element.section === 'siteVariable';
+  })
+  const company = sv[0].companyName;
+
+  document.querySelector('title').textContent = `${company} Eats`;
   return (
     <div className='App'>
       <nav className='nav-container'>
-        <h1 className='company-name'>{data.companyName} Eats</h1>
+        <h1 className='company-name'>{company} Eats</h1>
         <div className='navBtns'>
           <button><Link to='/'>Home</Link></button>
           <button><Link to='/help'>Help</Link></button>
@@ -21,7 +27,7 @@ export default function App(props) {
       </nav>
       <Route exact path='/'><Home /></Route>
       <Route path='/help'><Help /></Route>
-      <Route path='/order-pizza'><OrderForm /></Route>
+      <Route path='/order-pizza'><OrderForm data={data} /></Route>
     </div >
   )
 }

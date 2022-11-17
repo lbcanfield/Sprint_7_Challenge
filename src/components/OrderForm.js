@@ -1,4 +1,23 @@
 export default function OrderForm(props) {
+    const { data } = props;
+    // console.log(data);
+
+    const crust = data.filter((element) => {
+        return element.section == 'crustsize';
+    })
+    const sause = data.filter((element) => {
+        return element.section == 'sause';
+    })
+    const topping = data.filter((element) => {
+        return element.section == 'topping';
+    })
+    const substitute = data.filter((element) => {
+        return element.section == 'substitute';
+    })
+    // console.log(crust);
+    // console.log(sause);
+    // console.log(topping);
+    // console.log(substitute);
     return (
         <div className='order-form-container'>
             <form className='order-form'>
