@@ -20,7 +20,7 @@ export default function OrderForm(props) {
     })
     return (
         <div className='order-form-container'>
-            <form className='order-form'>
+            <form id='pizza-form' className='order-form'>
                 <div className='form-section form-head'>
                     <h3>Build Your Own Pizza</h3>
                 </div>

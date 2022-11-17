@@ -6,7 +6,7 @@ export default function Home(props) {
     const history = useHistory();
 
     const orderPizza = () => {
-        history.push('/order-pizza');
+        history.push('/pizza');
     }
     return (
         <section className='home-container'>

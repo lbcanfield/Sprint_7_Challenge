@@ -29,6 +29,9 @@ const initialFormValues = {
 export default function App(props) {
   const { data } = props;
 
+  const [formValues, setFormValues] = useState(initialFormValues);
+
+
   const sv = data.filter((element) => {
     return element.section === 'siteVariable';
   })
@@ -46,7 +49,7 @@ export default function App(props) {
       </nav>
       <Route exact path='/'><Home /></Route>
       <Route path='/help'><Help /></Route>
-      <Route path='/order-pizza'><OrderForm data={data} /></Route>
+      <Route path='/pizza'><OrderForm data={data} /></Route>
     </div >
   )
 }
