@@ -23,6 +23,13 @@ export default function OrderForm(props) {
             <form id='pizza-form' className='order-form'>
                 <div className='form-section form-head'>
                     <h3>Build Your Own Pizza</h3>
+                    <label>Enter Your Name
+                        <input
+                            id='name-input'
+                            type='text'
+                            name='name'
+                        />
+                    </label>
                 </div>
                 <div className='form-section form-img'></div>
                 <div className='form-section'>
