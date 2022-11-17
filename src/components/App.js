@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, Switch, Route } from 'react-router-dom';
 
-import '../styles/App.css';
 import Home from './Home';
 import Help from './Help';
+import OrderForm from './OrderForm';
 
 
 
@@ -21,6 +21,7 @@ export default function App(props) {
       </nav>
       <Route exact path='/'><Home /></Route>
       <Route path='/help'><Help /></Route>
+      <Route path='/order-pizza'><OrderForm /></Route>
     </div >
   )
 }
