@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Switch, Route } from 'react-router-dom';
 
 import Home from './Home';
@@ -6,6 +6,25 @@ import Help from './Help';
 import OrderForm from './OrderForm';
 
 
+const initialFormValues = {
+  crustsize: '',
+  sause: '',
+  pepperoni: false,
+  sausage: false,
+  canadianbacon: false,
+  spicyitaliansausage: false,
+  grilledchicken: false,
+  onions: false,
+  greenpepper: false,
+  dicedtomatos: false,
+  blackolives: false,
+  rostedgarlic: false,
+  artichokehearts: false,
+  threecheese: false,
+  pineapple: false,
+  extracheese: false,
+  glutenfreecrust: false
+}
 
 export default function App(props) {
   const { data } = props;

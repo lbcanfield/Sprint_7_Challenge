@@ -5,6 +5,11 @@ export default [
     },
     {
         section: 'crustsize',
+        formValue: '',
+        displayText: '--- Select ---'
+    },
+    {
+        section: 'crustsize',
         formValue: 'extralarge',
         displayText: 'Extra Large'
     },
