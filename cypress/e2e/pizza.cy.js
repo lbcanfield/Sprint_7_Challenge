@@ -3,6 +3,7 @@ describe('BloomTech Eats Test', () => {
         cy.visit('http://localhost:3000');
     })
 
+    // Helpers
 
 
 
