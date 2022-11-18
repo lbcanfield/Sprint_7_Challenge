@@ -1,115 +1,201 @@
+import React, { useState } from 'react';
+
+
+
 
 
 
 
 export default function OrderForm(props) {
-    const { data } = props;
-    // console.log(data);
+    const { values, change, submit, errors } = props;
 
-    const crust = data.filter((element) => {
-        return element.section == 'crustsize';
-    })
-    const sause = data.filter((element) => {
-        return element.section == 'sause';
-    })
-    const toppings = data.filter((element) => {
-        return element.section == 'topping';
-    })
-    const substitute = data.filter((element) => {
-        return element.section == 'substitute';
-    })
+    const onChange = event => {
+        const { name, value, checked, type } = event.target
+        const valueToUse = type === 'checkbox' ? checked : value
+        change(name, valueToUse);
+    }
+
+    const onSubmit = event => {
+        event.preventDefault();
+        submit();
+    }
+
     return (
         <div className='order-form-container'>
-            <form id='pizza-form' className='order-form'>
-                <div className='form-section form-head'>
-                    <h3>Build Your Own Pizza</h3>
-                    <label>Enter Your Name
-                        <input
-                            id='name-input'
-                            type='text'
-                            name='name'
-                        />
-                    </label>
+            <div className='order-form'>
+                <h3>Build Your Own Pizza</h3>
+                <div className='errors'>
+                    <div>{errors.nameinput}</div>
+                    <div>{errors.emailinput}</div>
                 </div>
-                <div className='form-section form-img'></div>
-                <div className='form-section'>
-                    <h2>Build Your Own Pizza</h2>
-                </div>
-                <div className='form-section option-section'>
-                    <h3>Choice of Size</h3>
-                    <p>Required</p>
-                </div>
-                <div className='form-section form-input'>
-                    <label className='select-box'>
-                        <select
-                            name='crustsize'
-                        >
-                            {crust.map(item => (
-                                <option
-                                    value={item.formValue}
-                                >
-                                    {item.displayText}
-                                </option>
-                            ))}
+                <form
+                    id='pizza-form'
+                    onSubmit={onSubmit} >
 
-                        </select>
-                    </label>
-                </div>
-                <div className='form-section option-section'>
-                    <h3>Choice of Sause</h3>
-                    <p>Required</p>
-                </div>
-                <div className='form-section form-input radioBtns'>
-                    {sause.map(item => (
-                        <div className='radio'>
+                    {/* /////////////////////////////////  Personal Information Text  ///////////////////////////////// */}
+                    <div className='form-header'>
+                        <h4>Personal Information</h4>
+                    </div>
+                    <div className='form-input personal-text-group'>
+                        <div className='text-group'>
+                            <label > Enter Name </label>
+                            <input
+                                id='name-input'
+                                type='text'
+                                name='nameinput'
+                                placeholder='Enter Name'
+                                value={values.nameinput}
+                                onChange={onChange}
+                            />
+                        </div>
+                        <div className='text-group'>
+                            <label> Enter Email</label>
+                            <input
+                                id='user-email'
+                                type='email'
+                                name='emailinput'
+                                placeholder='Enter Email Address'
+                                value={values.email}
+                                onChange={onChange}
+                            />
+                        </div>
+                    </div>
+
+                    {/* /////////////////////////////////  Crust Size Dropdown  ///////////////////////////////// */}
+                    <div className='form-header'>
+                        <h4>Choice of Size</h4>
+                    </div>
+
+                    <div className='form-input crust-dropdown-group'>
+                        <div className='dropdown-group'>
+                            <label> Select Size</label>
+                            <select
+                                id='size-dropdown'
+                                name='crustsize'
+                                onChange={onChange}
+                            >
+                                <option value=''>--- Select ---</option>
+                                <option value='extralarge'>Extra Large</option>
+                                <option value='large'>Large</option>
+                                <option value='medium'>Medium</option>
+                                <option value='small'>Small</option>
+                                <option value='personal'>Personal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    {/* /////////////////////////////////  Sauce Radio Group  ///////////////////////////////// */}
+                    <div className='form-header'>
+                        <h4>Choice of Sauce</h4>
+                    </div>
+                    <div className='form-input sauce-radio-group'>
+                        <div className='radio-group'>
+                            <label>Original Red</label>
                             <input
                                 type='radio'
-                                name={item.section}
-                                value={item.formValue}
+                                name='sauce'
+                                value='originalred'
+                                onChange={onChange}
+                                checked={values.sauce === 'originalred'}
                             />
-                            {item.displayText}
                         </div>
-                    ))}
+                        <div className='radio-group'>
+                            <label>Garlic Ranch</label>
+                            <input
+                                type='radio'
+                                name='sauce'
+                                value='garlicranch'
+                                onChange={onChange}
+                                checked={values.sauce === 'garlicranch'}
+                            />
+                        </div>
+                        <div className='radio-group'>
+                            <label>BBQ Sauce</label>
+                            <input
+                                type='radio'
+                                name='sauce'
+                                value='bbqsauce'
+                                onChange={onChange}
+                                checked={values.sauce === 'bbqsauce'}
+                            />
+                        </div>
+                        <div className='radio-group'>
+                            <label>Spinach Alfredo</label>
+                            <input
+                                type='radio'
+                                name='sauce'
+                                value='spinachalfredo'
+                                onChange={onChange}
+                                checked={values.sauce === 'spinachalfredo'}
+                            />
+                        </div>
+                    </div>
 
-                </div>
-                <div className='form-section option-section'>
-                    <h3>Add Toppings</h3>
-                    <p>Choose up to 10</p>
-                </div>
-                <div className='form-section form-input checkboxes'>
-                    {toppings.map(item => (
-                        <div className='checkbox'>
+
+                    {/* /////////////////////////////////  Toppings Checkbox Group  ///////////////////////////////// */}
+                    <div className='form-header'>
+                        <h4>Add Toppings</h4>
+                    </div>
+                    <div className='form-input toppings-checkbox-group' >
+                        <div className='checkbox-group'>
+                            <label>Pepperoni</label>
                             <input
                                 type='checkbox'
-                                name={item.formValue}
-                            />{item.displayText}
+                                name='pepperoni'
+                                checked={values.pepperoni}
+                                onChange={onChange}
+                            />
                         </div>
-                    ))}
-                </div>
-                <div className='form-section option-section'>
-                    <h3>Choice of Substitute</h3>
-                    <p>Choose up to 1</p>
-                </div>
-                <div className='form-section form-input checkboxes'>
-                    {substitute.map(item => (
-                        <div className='checkbox'>
+                        <div className='checkbox-group'>
+                            <label>Sausage</label>
                             <input
                                 type='checkbox'
-                                name={item.formValue}
-                            />{item.displayText}
+                                name='sausage'
+                                checked={values.sausage}
+                                onChange={onChange}
+                            />
                         </div>
-                    ))}
-                </div>
-                <div className='form-section option-section'>
-                    <h3>Special Instructions</h3>
-                </div>
-                <div className='form-section form-input'>
-                    <textarea
-                        placeholder="Anything else you'd like to add?"
-                        cols="500" />
-                </div>
+                        <div className='checkbox-group'>
+                            <label>Canadian Bacon</label>
+                            <input
+                                type='checkbox'
+                                name='canadianbacon'
+                                checked={values.canadianbacon}
+                                onChange={onChange}
+                            /></div>
+                        <div className='checkbox-group'>
+                            <label>Spicy Italian Sausage</label>
+                            <input
+                                type='checkbox'
+                                name='spicyitaliansausage'
+                                checked={values.spicyitaliansausage}
+                                onChange={onChange}
+                            />
+                        </div>
+                    </div>
+                    <div className='form-header'>
+                        <h4>Special Instructions</h4>
+                    </div>
+                    <div className='form-input'>
+                        <textarea
+                            id='special-text'
+                            placeholder='add any special instructions you want'
+                        />
+                    </div>
+                    <div className='form-input'>
+                        <input
+                            type='text'
+                            name='quantity'
+                        />
+                        <input
+                            id='order-button'
+                            type='submit'
+                            value='Create an Order'
+                        />
+                    </div>
+                </form>
+            </div>
+        </div>
 
-            </form >
-        </div >
     )
 }

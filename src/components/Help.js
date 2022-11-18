@@ -1,5 +1,9 @@
+import React from 'react';
+
 export default function Help(props) {
     return (
-        <h1>HELP COMPONENT</h1>
+        <div>
+            <h2>Help Component</h2>
+        </div>
     )
 }
