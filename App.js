@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
-import formSchema from '../validation/formSchema';
+import formSchema from './validation/formSchema';
 import * as yup from 'yup';
 import Home from './Home';
 import OrderForm from './OrderForm';

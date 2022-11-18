@@ -54,7 +54,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('../../Assets/Pizza.jpg');
+  background-image: url('../Assets/Pizza.jpg');
 }
 
 .home-image h2 {
